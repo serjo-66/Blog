@@ -12,7 +12,6 @@ class StoreController extends Controller
     {
         $data = $request->validated();
         Post::firstOrCreate($data);
-
         return redirect()->route('admin.post.index');
     }
 
