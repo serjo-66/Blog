@@ -33,13 +33,13 @@
                                 <input name="title" type="text" class="form-control" placeholder="Название поста"
                                        value="{{ old('title') }}">
                                 @error('title')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <textarea id="summernote" name="content">{{ old('content') }}</textarea>
                                 @error('content')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 @error('preview_image')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
                                 @error('main_image')
-                                <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -81,6 +81,9 @@
                                         >{{ $category->title }}</option>
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Тэги</label>
@@ -91,6 +94,9 @@
                                             {{ is_array( old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : '' }} value="{{ $tag->id }}">{{ $tag->title }}</option>
                                     @endforeach
                                 </select>
+                                @error('tag_ids')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Добавить">
