@@ -41,6 +41,7 @@
                                         <th>ID</th>
                                         <th>Название</th>
                                         <th>Просмотр</th>
+                                        <th>Редактирование</th>
                                         <th>Удалить</th>
                                     </tr>
                                     </thead>
@@ -51,6 +52,8 @@
                                             <td>{{ $post->title }}</td>
                                             <td><a href="{{ route('admin.post.show', $post->id) }}"><i
                                                         class="far fa-eye"></i></a></td>
+                                            <td><a href="{{ route('admin.post.edit', $post->id) }}"
+                                                   class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                             <td>
                                                 <form method="post"
                                                       action="{{ route('admin.post.delete', $post->id) }}">
