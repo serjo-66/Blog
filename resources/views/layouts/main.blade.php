@@ -28,12 +28,15 @@
                         <a class="nav-link" href="{{ route('main.index') }}">Блог</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category.index') }}">Категории</a>
+                    </li>
+                    <li class="nav-item d-flex justify-content-between">
                         @auth()
-                            {{--<form action="{{ route('logout') }}" method="post">
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет</a>
+                            <form action="{{ route('logout') }}" method="post">
                                 @csrf
                                 <input class="btn btn-outline-primary" type="submit" value="Выйти">
-                            </form>--}}
-                            <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет</a>
+                            </form>
                         @endauth
                         @guest()
                             <a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a>

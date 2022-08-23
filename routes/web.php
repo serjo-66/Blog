@@ -23,7 +23,13 @@ Route::group(['namespace' => 'Post', 'prefix' => 'post'], function () {
     Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
         Route::post('/', 'StoreController')->name('post.comment.store');
     });
+    Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function () {
+        Route::post('/', 'StoreController')->name('post.likes.store');
+    });
 
+});
+Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
+    Route::get('/', IndexController::class)->name('category.index');
 });
 
 Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
